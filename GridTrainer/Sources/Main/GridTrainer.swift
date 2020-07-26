@@ -35,7 +35,7 @@ struct GridTrainer: View {
         
         return NavigationView {
             VStack {
-                ScrollView {
+                ScrollView(.vertical) {
                     LazyVGrid(columns: cfg.gridItems.compactMap { $0.gridItem },
                               alignment: cfg.alignment,
                               spacing: cfg.spacing,
@@ -74,7 +74,7 @@ struct GridTrainer: View {
                         Button(action: {
                             self.showConfigPanel = true
                         }, label: {
-                            Image(systemName: "square.grid.3x2.fill")
+                            Image(systemName: "square.split.2x2.fill").frame(width: 40)
                         })
                         .popover(isPresented: self.$showConfigPanel, attachmentAnchor: .point(.bottomTrailing)) {
                             ConfigPopover(cfg: self.cfg)
@@ -82,12 +82,31 @@ struct GridTrainer: View {
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
+                        Menu(content: {
+                            VStack {
+                                    
+                                Text("Pre-configured GridItems").fontWeight(.heavy)
+                                Divider()
+                                Button("Fix + Fix + Fix") { self.cfg.gridItems = GridConfiguration.presetFixFixFix }
+                                Button("Fix + Flex + Fix") { self.cfg.gridItems = GridConfiguration.presetFixFlexFix }
+                                Button("Flex + Fix + Flex") { self.cfg.gridItems = GridConfiguration.presetFlexFixFlex }
+                                Button("Fix + Adapt + Fix") { self.cfg.gridItems = GridConfiguration.presetFixAdaptFix }
+                                Button("Fix + Flex + Adapt + Fixed")  { self.cfg.gridItems = GridConfiguration.presetFixFlexAdaptFix }
+                            }
+                        }, label: {
+                            Image(systemName: "square.split.2x1.fill").frame(width: 40)
+                        })
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
                             self.resetFlag.toggle()
                         }, label: {
-                            Image(systemName: "gobackward")
+                            Image(systemName: "arrow.uturn.down.square.fill").frame(width: 40)
                         })
                     }
+                    
+
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

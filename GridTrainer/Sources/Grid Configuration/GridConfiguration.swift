@@ -88,5 +88,37 @@ class GridConfiguration: ObservableObject {
                             }
                          })
     }
+    
+    static var presetFixFixFix = [
+        IdentifiableGridItem(1, GridItem(.fixed(100), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(2, GridItem(.fixed(100), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(3, GridItem(.fixed(100), spacing: 10, alignment: .center))
+    ]
+    
+    static var presetFixFlexFix = [
+        IdentifiableGridItem(1, GridItem(.fixed(100), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(2, GridItem(.flexible(minimum: 50, maximum: 150), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(3, GridItem(.fixed(100), spacing: 10, alignment: .center))
+    ]
+    
+    static var presetFlexFixFlex = [
+        IdentifiableGridItem(1, GridItem(.flexible(minimum: 50, maximum: 150), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(2, GridItem(.fixed(100), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(3, GridItem(.flexible(minimum: 50, maximum: 150), spacing: 10, alignment: .center)),
+    ]
+    
+    static var presetFixAdaptFix = [
+        IdentifiableGridItem(1, GridItem(.fixed(100), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(2, GridItem(.adaptive(minimum: 50, maximum: 150), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(3, GridItem(.fixed(100), spacing: 10, alignment: .center)),
+    ]
+
+    static var presetFixFlexAdaptFix = [
+        IdentifiableGridItem(1, GridItem(.fixed(100), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(2, GridItem(.flexible(minimum: 50, maximum: 150), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(3, GridItem(.adaptive(minimum: 50, maximum: 150), spacing: 10, alignment: .center)),
+        IdentifiableGridItem(4, GridItem(.fixed(100), spacing: 10, alignment: .center)),
+    ]
+
 }
 

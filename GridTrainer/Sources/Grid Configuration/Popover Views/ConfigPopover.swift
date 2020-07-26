@@ -69,7 +69,7 @@ struct ConfigPopover: View {
             }
             .navigationBarHidden(true)
             .padding(.trailing, 10)
-        }.frame(width: 300, height: 500)
+        }.frame(width: 300, height: 700)
         
     }
     
