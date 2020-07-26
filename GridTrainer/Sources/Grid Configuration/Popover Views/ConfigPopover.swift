@@ -60,7 +60,9 @@ struct ConfigPopover: View {
 
                         }
                         
-                    }.onDelete(perform: deleteGridItem)
+                    }
+                    .onDelete(perform: deleteGridItem)
+                    .onMove(perform: moveGridItem)
                     
                     Button("Add Column") {
                         self.cfg.gridItems.append(IdentifiableGridItem((self.cfg.gridItems.last?.id ?? 0) + 1, self.cfg.gridItems.last?.gridItem ?? GridItem(.fixed(50), spacing: 0, alignment: .center)))
@@ -75,5 +77,9 @@ struct ConfigPopover: View {
     
     func deleteGridItem(offsets: IndexSet) {
         self.cfg.gridItems.remove(atOffsets: offsets)
+    }
+    
+    func moveGridItem(from: IndexSet, to: Int) {
+        self.cfg.gridItems.move(fromOffsets: from, toOffset: to)
     }
 }
