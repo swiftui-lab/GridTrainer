@@ -13,7 +13,7 @@ struct GridTrainer: View {
     @StateObject private var cfg = GridConfiguration()
     
     // A flag to recreate the grid, tied to the refresh button in the toolbar
-    // This is needed when current Lazy[VH]]Grid bugs corrupt the layout, to
+    // This is needed when current Lazy*Grid bugs corrupt the layout, to
     // force a redraw.
     @State private var resetFlag = true
     
